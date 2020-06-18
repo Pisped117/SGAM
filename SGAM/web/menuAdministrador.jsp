@@ -16,14 +16,21 @@
         <%out.println(obj.getAttribute("nombre"));%>
         <header>
             <li><a class="icon-user-plus" href="#">Consultar<span class="icon-down-open"></span></a>
-                        <ul>
-                            <li><a class="icon-user-plus" href="consultarUsuario.jsp">Usuarios</a></li>
-                            
-                        </ul>
-                    </li>
-                    
-                    <%@include file="permisos.jsp"%>
-            
+                <ul>
+                    <li><a class="icon-user-plus" href="consultarUsuario.jsp">Usuarios</a></li>
+                    <li><a class="icon-user-plus" href="consultarRoles.jsp">Roles</a></li>
+                </ul>
+            </li>
+            <li><a class="icon-user-plus" href="#">Registrar<span class="icon-down-open"></span></a>
+                <ul>
+                    <li><a class="icon-user-plus" href="registrarRoles.jsp">Roles</a></li>
+                    <li><a class="icon-user-plus" href="">Roles</a></li>
+                </ul>
+            </li>
+
+            <%@include file="permisos.jsp"%>
+
+            <a href="salir.jsp">Salir</a>
         </header>
     </body>
 </html>
