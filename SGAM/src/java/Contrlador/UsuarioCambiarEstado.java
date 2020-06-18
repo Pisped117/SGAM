@@ -9,38 +9,30 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Andres Alvarez
  */
-@WebServlet(name = "UsuarioIniciar", urlPatterns = {"/UsuarioIniciar"})
-public class UsuarioIniciar extends HttpServlet {
+@WebServlet(name = "UsuarioCambiarEstado", urlPatterns = {"/UsuarioCambiarEstado"})
+public class UsuarioCambiarEstado extends HttpServlet {
 
-   
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
-            Usuario obj = new Usuario();
-            HttpSession con = request.getSession(true);
-            String numero_documento = request.getParameter("documento");
-            String contrasenia = request.getParameter("contrasenia");
-            String nombre = obj.inicioSesion(numero_documento, contrasenia);
-           
             
-  if (nombre!="") {
-          
-            con.setAttribute("documento", numero_documento);
-            con.setAttribute("nombre", nombre);
-            response.sendRedirect("menuAdministrador.jsp");
-        } else {
-  
-            response.sendRedirect("index.jsp");
-        }
-           
+            String estado = request.getParameter("estado");
+            String numero_documento = request.getParameter("numero_documento");
+            
+            Usuario con = new Usuario();
+            
+            if(con.cambiarEstado(numero_documento, estado)){
+                response.sendRedirect("menuAdministrador.jsp");
+            }else{
+                response.sendRedirect("consultarUsuario.jsp");
+            }
             
         }
     }

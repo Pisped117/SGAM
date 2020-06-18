@@ -94,11 +94,45 @@ public class Usuario extends Conexion {
         return "";
     }
 
+    //Metodo para cambiar estado de usuario
+    public boolean cambiarEstado(String numero_documento, String estado) {
+
+        PreparedStatement pst = null;
+        try {
+
+            String consulta = "UPDATE usuario SET estado= ? WHERE numero_Documento= ? ";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, estado);
+            pst.setString(2, numero_documento);
+
+            if (pst.executeUpdate() == 1) {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("Error" + ex);
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+
+            } catch (SQLException e) {
+                System.err.println("Error" + e);
+            }
+        }
+        return false;
+
+    }
+
     public static void main(String[] args) {
 
         Usuario con = new Usuario();
 
-        //con.iniciarSesion("12345", "12345");
+        con.cambiarEstado("12345", "Habilitado");
     }
 
 }

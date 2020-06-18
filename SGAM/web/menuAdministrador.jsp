@@ -15,13 +15,10 @@
         <%HttpSession obj = request.getSession();%>
         <%out.println(obj.getAttribute("nombre"));%>
         <header>
-            <li><a class="icon-user-plus" href="#">Registrar<span class="icon-down-open"></span></a>
+            <li><a class="icon-user-plus" href="#">Consultar<span class="icon-down-open"></span></a>
                         <ul>
-                            <li><a class="icon-user-plus" href="consultarPermisos.jsp">Roles</a></li>
-                            <li><a class="icon-user-plus" href="asignarPermisos.jsp">Asignar Permisos</a></li>
-                            <li><a class="icon-user-plus" href="crearRol.jsp">Crear roles</a></li>
-                           <li><a class="icon-user-plus" href="consultarRol.jsp">Listar roles</a></li>
-                            <li><a class="icon-user-plus" href="asignarResponsableDependencia.jsp">Asignar dependencia responsable</a></li>
+                            <li><a class="icon-user-plus" href="consultarUsuario.jsp">Usuarios</a></li>
+                            
                         </ul>
                     </li>
                     
