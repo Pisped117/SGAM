@@ -166,11 +166,62 @@ public class Usuario extends Conexion {
         return false;
     }
 
+    //Metodo para actualizar contrasenia
+    public boolean actualizarContrasenia(String numero_documento, String contrasenia_nueva, String contrasenia_vieja) {
+
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        PreparedStatement pst2 = null;
+        
+        try {
+
+            String consulta = "SELECT * FROM usuario WHERE numero_documento= ? AND contrasenia= ?";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, numero_documento);
+            pst.setString(2, contrasenia_vieja);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                String sql = "UPDATE usuario SET contrasenia= ? WHERE numero_documento= ?";
+                pst2 = getConexion().prepareStatement(sql);
+                pst2.setString(1, contrasenia_nueva);
+                pst2.setString(2, numero_documento);
+
+                if (pst2.executeUpdate() == 1) {
+                    return true;
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error" + e);
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (pst2 != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    pst.close();
+                }
+
+            } catch (SQLException e) {
+                System.err.println("Error" + e);
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
 
         Usuario con = new Usuario();
 
-        con.actualizarDatos("123", "CC", "Andres Fe", "Alvarez av", "andres@gmsil.com");
+        //con.actualizarContrasenia("123", "123", "12345");
     }
 
 }

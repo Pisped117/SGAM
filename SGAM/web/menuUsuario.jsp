@@ -19,7 +19,7 @@
             <li><a class="icon-user-plus" href="actualizarDatos.jsp">Actualizar datos personales<span class="icon-down-open"></span></a>
                
             </li>
-            <li><a class="icon-user-plus" href="#">Cambiar contraseña<span class="icon-down-open"></span></a>
+            <li><a class="icon-user-plus" href="actualizarContrasenia.jsp">Cambiar contraseña<span class="icon-down-open"></span></a>
 
             </li>
 
