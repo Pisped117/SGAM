@@ -22,7 +22,8 @@
     <body>
         <header>
             <select name="permiso" class="" onchange="location = this.value;">  <br>
-                <option>Seleccione rol</option>
+                <option>Seleccione rol:</option>
+                <option value='menuUsuario.jsp'>Usuario</option>
                 <%
                     
 
@@ -53,18 +54,18 @@
                                 
                                 if (nombre_rol.equals("Administrador")) {
                 %>
-                <option value=""><a ><%=nombre_rol%></a></option>
+                <option value="menuAdministrador.jsp"><a ><%=nombre_rol%></a></option>
                 <%
                     }
                     if (nombre_rol.equals("Vendedor")) {
 
                 %>
-                <option value=""><a ><%=nombre_rol%></a></option>
+                <option value="menuVendedor.jsp"><a ><%=nombre_rol%></a></option>
                 <%
                     }
                     if (nombre_rol.equals("Cliente")) {
                 %> 
-                <option value=""><a ><%=nombre_rol%></a></option>
+                <option value="menuCliente.jsp"><a ><%=nombre_rol%></a></option>
                 <%
 
                     }

@@ -128,11 +128,49 @@ public class Usuario extends Conexion {
 
     }
 
+    //Metodo para actualizar datos de usuario
+    public boolean actualizarDatos(String numero_documento, String tipo_documento, String nombres, String apellidos, String correo) {
+
+        PreparedStatement pst = null;
+
+        try {
+
+            String consulta = "UPDATE usuario SET tipo_documento= ?, nombres= ?, apellidos= ?, correo= ? WHERE numero_documento= ?";
+            pst = getConexion().prepareStatement(consulta);
+            pst.setString(1, tipo_documento);
+            pst.setString(2, nombres);
+            pst.setString(3, apellidos);
+            pst.setString(4, correo);
+            pst.setString(5, numero_documento);
+
+            if (pst.executeUpdate() == 1) {
+                return true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error" + e);
+        } finally {
+            try {
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+
+            } catch (SQLException e) {
+                System.err.println("Error" + e);
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
 
         Usuario con = new Usuario();
 
-        con.cambiarEstado("12345", "Habilitado");
+        con.actualizarDatos("123", "CC", "Andres Fe", "Alvarez av", "andres@gmsil.com");
     }
 
 }

@@ -1,7 +1,7 @@
 <%-- 
     Document   : registrarUsuario
     Created on : 16-jun-2020, 14:40:18
-    Author     : Juan Pablo
+    Author     : Andres Alvarez
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
