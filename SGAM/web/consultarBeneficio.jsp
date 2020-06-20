@@ -1,3 +1,9 @@
+<%-- 
+    Document   : consultarBeneficio
+    Created on : 19-jun-2020, 15:05:52
+    Author     : Andres Alvarez 
+--%>
+
 
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
@@ -18,48 +24,35 @@
         <nav>
             <div class="container">
                 <br>
-                <h1>Usuarios de SGAM</h1>
+                <h1>Beneficios de alquileres</h1>
                 <a href="menuAdministrador.jsp" style="color: white" class="btn btn-success">Volver</a>
                 <br>
                 <br>
                 <table  class="table table-sm table-bordered table-hover ">
                     <thead class="thead-dark">
                         <tr>
-                            <th class="text-center">Numero de documento</th>
-                            <th class="text-center">Nombres</th>
-                            <th class="text-center">Apellidos</th>
-                            <th class="text-center">Tipo de documento</th>
-                            <th class="text-center">Correo</th>
-                            <th class="text-center">Estado</th>
+                            <th class="text-center">Nombre del beneficio</th>
+                            <th class="text-center">Descripcion</th>
                             <th class="text-center">Acciones</th>
+
                         </tr>
                         <%  Conexion con = new Conexion();
                             PreparedStatement pst = null;
                             ResultSet rs = null;
                             try {
-                                String consulta = "SELECT * FROM usuario;";
+                                String consulta = "SELECT * FROM beneficios;";
                                 pst = con.getConexion().prepareStatement(consulta);
                                 rs = pst.executeQuery();
 
                                 while (rs.next()) {
                         %>
                         <tr>
-                            <td class="text-center"><%=rs.getString(1)%></td>
-                            <td class="text-center"><%=rs.getString(3)%></td>
-                            <td class="text-center"><%=rs.getString(4)%></td>
-                            <td class="text-center"><%=rs.getString(2)%></td>
-                            <td class="text-center"><%=rs.getString(6)%></td>
-                            <td class="text-center"><%=rs.getString(7)%></td>
-                            <td class="text-center">
+                            <td class="text-center"><%=rs.getString("nombre_beneficio")%></td>
+                            <td class="text-center"><%=rs.getString("descripcion_beneficio")%></td>
 
-                                <%
-                                    String estado = rs.getString(7);
-                                    if (estado.equals("Habilitado")) {
-                                        %><a style="color: white" class="btn btn-danger" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Deshabilitado">Deshabilitar</a> <%
-                                    } else {
-                                %><a style="color: white" class="btn btn-info" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Habilitado">Habilitar</a><%
-                                      }
-                                %>
+                            <td class="text-center">                               
+                                <a style="color: white" class="btn btn-danger" href="BeneficiosEliminar?id_beneficio=<%=rs.getInt("id_beneficio")%>">Eliminar</a> 
+                                <a style="color: white" class="btn btn-info" href="actualizarBeneficio.jsp?id_beneficio=<%=rs.getInt("id_beneficio")%>">Actualizar</a>
                             </td>
                         </tr>
                         <%}%>
@@ -91,5 +84,3 @@
 
 
 %>
-
-

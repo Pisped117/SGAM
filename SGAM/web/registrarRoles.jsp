@@ -1,7 +1,7 @@
 <%-- 
     Document   : registrarRoles
     Created on : 18-jun-2020, 15:05:14
-    Author     : Juan Pablo
+    Author     : Andres Alvarez
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,3 +1,8 @@
+<%-- 
+    Document   : consultarPermisos
+    Created on : 18-jun-2020, 19:29:12
+    Author     : Andres Alvarez
+--%>
 
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
@@ -18,7 +23,7 @@
         <nav>
             <div class="container">
                 <br>
-                <h1>Usuarios de SGAM</h1>
+                <h1>Permisos de usuarios</h1>
                 <a href="menuAdministrador.jsp" style="color: white" class="btn btn-success">Volver</a>
                 <br>
                 <br>
@@ -26,43 +31,40 @@
                     <thead class="thead-dark">
                         <tr>
                             <th class="text-center">Numero de documento</th>
-                            <th class="text-center">Nombres</th>
-                            <th class="text-center">Apellidos</th>
-                            <th class="text-center">Tipo de documento</th>
-                            <th class="text-center">Correo</th>
-                            <th class="text-center">Estado</th>
+                            <th class="text-center">Rol</th>
                             <th class="text-center">Acciones</th>
+
                         </tr>
                         <%  Conexion con = new Conexion();
                             PreparedStatement pst = null;
                             ResultSet rs = null;
                             try {
-                                String consulta = "SELECT * FROM usuario;";
+                                String consulta = "SELECT * FROM permisos;";
                                 pst = con.getConexion().prepareStatement(consulta);
                                 rs = pst.executeQuery();
 
                                 while (rs.next()) {
+
+                                    int id_rol = rs.getInt("id_rol");
+                                    String sql = "SELECT * FROM roles WHERE id_rol='"+id_rol+"' ;";
+                                    PreparedStatement pst2 = null;
+                                    ResultSet rs2 = null;
+                                   
+                                    pst2 = con.getConexion().prepareStatement(sql);
+                                    rs2 = pst2.executeQuery();
+
+                                    while (rs2.next()) {
+
                         %>
                         <tr>
-                            <td class="text-center"><%=rs.getString(1)%></td>
-                            <td class="text-center"><%=rs.getString(3)%></td>
-                            <td class="text-center"><%=rs.getString(4)%></td>
-                            <td class="text-center"><%=rs.getString(2)%></td>
-                            <td class="text-center"><%=rs.getString(6)%></td>
-                            <td class="text-center"><%=rs.getString(7)%></td>
+                            <td class="text-center"><%=rs.getString("numero_documento")%></td>
+                            <td class="text-center"><%=rs2.getString("nombre_rol")%></td>
                             <td class="text-center">
-
-                                <%
-                                    String estado = rs.getString(7);
-                                    if (estado.equals("Habilitado")) {
-                                        %><a style="color: white" class="btn btn-danger" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Deshabilitado">Deshabilitar</a> <%
-                                    } else {
-                                %><a style="color: white" class="btn btn-info" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Habilitado">Habilitar</a><%
-                                      }
-                                %>
+                                <a style="color: white" class="btn btn-danger" href="PermisosEliminar?id_rol=<%=rs.getInt("id_rol")%>&numero_documento=<%=rs.getInt("numero_documento")%>">Eliminar</a> 
                             </td>
                         </tr>
-                        <%}%>
+                        <%}
+                            }%>
                     </thead>
                 </table>
             </div>
@@ -91,5 +93,6 @@
 
 
 %>
+
 
 

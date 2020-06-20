@@ -19,12 +19,17 @@
                 <ul>
                     <li><a class="icon-user-plus" href="consultarUsuario.jsp">Usuarios</a></li>
                     <li><a class="icon-user-plus" href="consultarRoles.jsp">Roles</a></li>
+                    <li><a class="icon-user-plus" href="consultarPermisos.jsp">Permisos</a></li>
+                    <li><a class="icon-user-plus" href="consultarBeneficio.jsp">Beneficio  </a></li>
+                    
                 </ul>
             </li>
             <li><a class="icon-user-plus" href="#">Registrar<span class="icon-down-open"></span></a>
                 <ul>
                     <li><a class="icon-user-plus" href="registrarRoles.jsp">Roles</a></li>
-                    <li><a class="icon-user-plus" href="">Roles</a></li>
+                    <li><a class="icon-user-plus" href="asignarPermisos.jsp">Permisos</a></li>
+                    <li><a class="icon-user-plus" href="registrarBeneficio.jsp">Beneficio  </a></li>
+                    
                 </ul>
             </li>
 
