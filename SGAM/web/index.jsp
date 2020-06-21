@@ -30,6 +30,7 @@
             <input type="submit" value="Ingresar">
 
         </form>
+        <img src=''>        
      <br>
             <a href="registrarUsuario.jsp">Registrate</a>
             <br>

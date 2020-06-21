@@ -16,22 +16,11 @@
         <%HttpSession obj = request.getSession();%>
         <%out.println(obj.getAttribute("nombre"));%>
         <header>
-            <li><a class="icon-user-plus" href="#">Consultar<span class="icon-down-open"></span></a>
-                <ul>
-                    <li><a class="icon-user-plus" href="consultarUsuario.jsp">Usuarios</a></li>
-                    <li><a class="icon-user-plus" href="consultarRoles.jsp">Roles</a></li>
-                    <li><a class="icon-user-plus" href="consultarPermisos.jsp">Permisos</a></li>
-                    <li><a class="icon-user-plus" href="consultarBeneficio.jsp">Beneficio  </a></li>
-                    
-                </ul>
+            <li><a class="icon-user-plus" href="registrarProducto.jsp">Registrar producto<span class="icon-down-open"></span></a>
+             
             </li>
-            <li><a class="icon-user-plus" href="#">Registrar<span class="icon-down-open"></span></a>
-                <ul>
-                    <li><a class="icon-user-plus" href="registrarRoles.jsp">Roles</a></li>
-                    <li><a class="icon-user-plus" href="asignarPermisos.jsp">Permisos</a></li>
-                    <li><a class="icon-user-plus" href="registrarBeneficio.jsp">Beneficio  </a></li>
-                    
-                </ul>
+            <li><a class="icon-user-plus" href="ProductosConsultar">Consultar producto<span class="icon-down-open"></span></a>
+                
             </li>
 
             <%@include file="permisos.jsp"%>
