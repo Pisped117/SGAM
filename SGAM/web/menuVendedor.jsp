@@ -19,7 +19,7 @@
             <li><a class="icon-user-plus" href="registrarProducto.jsp">Registrar producto<span class="icon-down-open"></span></a>
              
             </li>
-            <li><a class="icon-user-plus" href="ProductosConsultar">Consultar producto<span class="icon-down-open"></span></a>
+            <li><a class="icon-user-plus" href="consultarProductos.jsp">Consultar producto<span class="icon-down-open"></span></a>
                 
             </li>
 

@@ -1,4 +1,3 @@
-
 package Contrlador;
 
 import Modelo.Producto;
@@ -17,33 +16,39 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ProductosConsultar extends HttpServlet {
 
-    
+    ProductoDAO pdao = new ProductoDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            ProductoDAO pdao = new ProductoDAO();
-            
-            List<Producto> productos = pdao.consultarProducto();
-            request.setAttribute("productos", productos);
-            request.getRequestDispatcher("consultarProductos.jsp").forward(request, response);
-            response.sendRedirect("consultarProductos.jsp");
+
         }
     }
 
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String accion = request.getParameter("accion");
+
+        switch (accion) {
+            case "listar":
+                List<Producto> lista = pdao.consultarProducto();
+                request.setAttribute("lista_productos", lista);
+                request.getRequestDispatcher("consultarProductos.jsp").forward(request, response);
+
+                break;
+            default:
+                 request.getRequestDispatcher("ProductosConsultar?accion=listar").forward(request, response);
+                break;
+        }
+
     }
 
     @Override
