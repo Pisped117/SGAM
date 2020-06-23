@@ -19,10 +19,10 @@
             <div class="container">
                 <br>
                 <h1>Usuarios de SGAM</h1>
-                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-success">Volver</a>
+                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-info">Volver</a>
                 <br>
                 <br>
-                <table  class="table table-sm table-bordered table-hover ">
+                <table  class="table table-sm table-bordered table-dark ">
                     <thead class="thead-dark">
                         <tr>
                             <th class="text-center">Numero de documento</th>
@@ -57,7 +57,7 @@
                                     if (estado.equals("Habilitado")) {
                                         %><a style="color: white" class="btn btn-danger" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Deshabilitado">Deshabilitar</a> <%
                                     } else {
-                                %><a style="color: white" class="btn btn-info" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Habilitado">Habilitar</a><%
+                                %><a style="color: white" class="btn btn-warning" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Habilitado">Habilitar</a><%
                                       }
                                 %>
                             </td>

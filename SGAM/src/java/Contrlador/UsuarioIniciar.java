@@ -35,7 +35,7 @@ public class UsuarioIniciar extends HttpServlet {
           
             con.setAttribute("documento", numero_documento);
             con.setAttribute("nombre", nombre);
-            response.sendRedirect("menuAdministrador.jsp");
+            response.sendRedirect("menuUsuario.jsp");
         } else {
   
             response.sendRedirect("index.jsp");

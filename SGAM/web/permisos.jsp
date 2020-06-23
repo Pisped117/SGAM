@@ -65,7 +65,7 @@
                     }
                     if (nombre_rol.equals("Cliente")) {
                 %> 
-                <option value="menuCliente.jsp"><a ><%=nombre_rol%></a></option>
+                <option value="menuCliente2.jsp"><a ><%=nombre_rol%></a></option>
                 <%
 
                     }

@@ -9,78 +9,78 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="Modelo.Conexion"%>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Actualizar</title>
-</head>
-<body>
-    <link href="css/styleregistraruser.css" rel="stylesheet" type="text/css"/>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>Administrador</title>
+    </head>
+    <body>
+        <div class="container mt-4">
+            <div class="form-group">
+                <form action="BeneficioActualizar" class="col-md-6" method="POST" autocomplete="OFF" >
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Actualizar Beneficio</h3>
+                        </div>
+                        <%
+                            int id_beneficio = Integer.parseInt(request.getParameter("id_beneficio"));
+                            Conexion con = new Conexion();
+                            PreparedStatement pst = null;
+                            ResultSet rs = null;
+                            try {
+                                String consulta = "SELECT * FROM beneficios where id_beneficio= ?;";
+                                pst = con.getConexion().prepareStatement(consulta);
+                                pst.setInt(1, id_beneficio);
+                                rs = pst.executeQuery();
 
-<center> <h1 class="user__title">Actualizar Beneficio</h1></center>
+                                 while (rs.next()) {%>
 
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Nombre del beneficio</label>
+                                <br>
+                                <input name="id_beneficio" readonly hidden type="text" value="<%=rs.getString(1)%>" placeholder="Codigo del Rol" class="form__input" />
+                                 <input name="nombre_beneficio" type="text" value="<%=rs.getString(2)%>" placeholder="Nombre dle rol" class="form__input" />
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion</label>
+                                <br>
+                                 <textarea name="descripcion_beneficio"><%=rs.getString(3)%></textarea>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-outline-primary" name="accion" value="Guardar">Guardar</button>
+                            </div>    
+                        </div>
+                        <%}
 
-<div class="user" >
-    
-    <%
-        int id_beneficio =Integer.parseInt(request.getParameter("id_beneficio"));
-            Conexion con = new Conexion();
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try {   
-                String consulta = "SELECT * FROM beneficios where id_beneficio= ?;";
-                pst = con.getConexion().prepareStatement(consulta);
-                pst.setInt(1, id_beneficio);
-                rs = pst.executeQuery();
+                            }catch (SQLException e) {
+                System.out.println("Error" + e);
+            }finally {
+                try {
+                    if (con.getConexion() != null) {
+                        con.getConexion().close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+                    if (rs != null) {
+                        rs.close();
+                    }
 
-                while (rs.next()) {
+                } catch (SQLException e) {
+                    System.err.println("Error" + e);
+                }
+            }
+                        %>
 
-        %>
-    <form class="form" action="BeneficioActualizar" method="post">
+                </form>
+            </div>
 
-        
-        <div class="form__group">
-            <input name="id_beneficio" readonly hidden type="text" value="<%=rs.getString(1)%>" placeholder="Codigo del Rol" class="form__input" />
-        </div>
-        <br>
-        <div class="form__group">
-            <input name="nombre_beneficio" type="text" value="<%=rs.getString(2)%>" placeholder="Nombre dle rol" class="form__input" />
-
-        </div>
-        <br>
-        <div class="form__group">
-            <label>Descipcion del beneficio</label>
-            <br>
-           <textarea name="descripcion_beneficio"><%=rs.getString(3)%></textarea>
-        </div>
-        <br>
-        <%}%>
-        <center><input class="boton" name="opcion" value="Guardar" type="submit">  
-
-        </center>
-    </form>
-
-
-</div>
-</body>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>
-<%
-
-    } catch (SQLException e) {
-        System.out.println("Error" + e);
-    } finally {
-        try {
-            if (con.getConexion() != null) {
-                con.getConexion().close();
-            }
-            if (pst != null) {
-                pst.close();
-            }
-            if (rs != null) {
-                rs.close();
-            }
-
-        } catch (SQLException e) {
-            System.err.println("Error" + e);
-        }
-    }
-%>

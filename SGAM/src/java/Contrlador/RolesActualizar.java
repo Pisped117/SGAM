@@ -26,9 +26,9 @@ public class RolesActualizar extends HttpServlet {
             Roles con = new Roles();
             
             if(con.acualizarRol(id_rol, nombre_rol)){
-                request.getParameter("menuAdministrador.jsp");
+                response.sendRedirect("menuAdministrador.jsp");
             }else{
-                request.getParameter("actualizarRol.jsp");
+                response.sendRedirect("actualizarRol.jsp");
             }
         }
     }

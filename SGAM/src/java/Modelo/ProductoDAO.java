@@ -46,7 +46,7 @@ public class ProductoDAO extends Conexion {
                 pro.setId_producto(rs.getInt(1));
 
                 lista.add(pro);
-       
+
             }
 
         } catch (SQLException e) {
@@ -76,13 +76,13 @@ public class ProductoDAO extends Conexion {
             rs = pst.executeQuery();
             if (rs.next()) {
 
-                inputStream=rs.getBinaryStream("imagen_producto");
+                inputStream = rs.getBinaryStream("imagen_producto");
             }
 
-            bufferesInputStream=new BufferedInputStream(inputStream);
-            bufferedOutputStream=new BufferedOutputStream(outputStream);
-            int i=0;
-            while((i=bufferesInputStream.read())!=-1){
+            bufferesInputStream = new BufferedInputStream(inputStream);
+            bufferedOutputStream = new BufferedOutputStream(outputStream);
+            int i = 0;
+            while ((i = bufferesInputStream.read()) != -1) {
                 bufferedOutputStream.write(i);
             }
         } catch (Exception e) {
@@ -126,14 +126,14 @@ public class ProductoDAO extends Conexion {
         }
 
     }
-    
+
     //Metodo para actualizar productos
-    public void actualizarProducto(int id_producto, Producto p){
-        
+    public void actualizarProducto(int id_producto, Producto p) {
+
         Conexion cn = new Conexion();
-        String sql ="UPDATE producto SET imagen_producto= ?, nombre_producto= ?, precio= ? WHERE id_producto= ?";
-        
-         try {
+        String sql = "UPDATE producto SET imagen_producto= ?, nombre_producto= ?, precio= ? WHERE id_producto= ?";
+
+        try {
             con = cn.getConexion();
             pst = con.prepareStatement(sql);
             pst.setBlob(1, p.getImagen_producto());
@@ -163,9 +163,8 @@ public class ProductoDAO extends Conexion {
             }
         }
 
-        
     }
-    
+
     //Metodo para eliminar producto
     public void eliminarProducto(int id_producto) {
 
@@ -197,7 +196,30 @@ public class ProductoDAO extends Conexion {
 
     }
 
-    
+    //Metodo para consultar y porteriormente agregar al carrito
+    public Producto consultarId(int id_producto) {
+
+        Conexion cn = new Conexion();
+        String sql = "SELECT * FROM producto WHERE id_producto=" + id_producto;
+        Producto pro = new Producto();
+        try {
+            con = cn.getConexion();
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                pro.setId_producto(rs.getInt(1));
+                pro.setImagen_producto(rs.getBinaryStream(2));
+                pro.setNombre_producto(rs.getString(3));
+                pro.setPrecio(rs.getInt(4));
+                
+            }
+        } catch (SQLException e) {
+        }
+
+        return pro;
+    }
+
     public static void main(String[] args) {
         ProductoDAO pdao = new ProductoDAO();
         pdao.consultarProducto();

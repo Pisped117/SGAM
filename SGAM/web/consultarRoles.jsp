@@ -24,10 +24,10 @@
             <div class="container">
                 <br>
                 <h1>Roles de SGAM</h1>
-                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-success">Volver</a>
+                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-info">Volver</a>
                 <br>
                 <br>
-                <table  class="table table-sm table-bordered table-hover ">
+                <table  class="table table-sm table-bordered table-dark ">
                     <thead class="thead-dark">
                         <tr>
                             <th class="text-center">Numero de documento</th>
@@ -49,7 +49,7 @@
 
                             <td class="text-center">                               
                                 <a style="color: white" class="btn btn-danger" href="RolesEliminar?id_rol=<%=rs.getInt("id_rol")%>">Eliminar</a> 
-                                <a style="color: white" class="btn btn-info" href="actualizarRol.jsp?id_rol=<%=rs.getInt("id_rol")%>">Actualizar</a>
+                                <a style="color: white" class="btn btn-warning" href="actualizarRol.jsp?id_rol=<%=rs.getInt("id_rol")%>">Actualizar</a>
                             </td>
                         </tr>
                         <%}%>

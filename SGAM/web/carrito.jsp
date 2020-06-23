@@ -20,7 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <title>Cliente</title>
+        <title>Vendedor</title>
     </head>
     <body>      
 
@@ -37,38 +37,10 @@
                         <a class="nav-link"><%out.println(obj.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
                     </li>
 
-                    <%
-                        ProductoDAO pdao = new ProductoDAO();
-                        Producto pro = new Producto();
-                        List<Producto> productos = new ArrayList<>();
-                        List<Carrito> listCarrito = new ArrayList<>();
-
-                        int item = 0;
-                        int total_pagar = 0;
-                        int cantidad = 1;
-      
-                         int id_producto = Integer.parseInt(request.getParameter("id"));
-
-                            pro = pdao.consultarId(id_producto);
-                            item = item + 1;
-                            Carrito car = new Carrito();
-
-                            car.setItem(item);
-                            car.setId_producto(pro.getId_producto());
-                            car.setNombre(pro.getNombre_producto());
-                            car.setPrecio_compra(pro.getPrecio());
-                            car.setCantidad(cantidad);
-                            car.setSub_total(cantidad * pro.getPrecio());
-
-                            listCarrito.add(car);
-
-                    %>
-       
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-cart-plus"><label style="color: crimson"><%=listCarrito.size()%></label></i>Carrito</a>
+                        <a class="nav-link" href="#"><i class="fas fa-cart-plus"><label style="color: crimson"></label></i>Carrito</a>
                     </li>
-
-                   
+             
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pricing</a>
                     </li>

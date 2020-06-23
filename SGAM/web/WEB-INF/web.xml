@@ -12,6 +12,10 @@
         <servlet-name>ProductoConsultarImagen</servlet-name>
         <servlet-class>Contrlador.ProductoConsultarImagen</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarritoAgregar</servlet-name>
+        <servlet-class>Contrlador.CarritoAgregar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductoRegistrar</servlet-name>
         <url-pattern>/ProductoRegistrar</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ProductoConsultarImagen</servlet-name>
         <url-pattern>/ProductoConsultarImagen</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarritoAgregar</servlet-name>
+        <url-pattern>/CarritoAgregar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

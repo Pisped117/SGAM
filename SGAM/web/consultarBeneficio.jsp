@@ -25,10 +25,10 @@
             <div class="container">
                 <br>
                 <h1>Beneficios de alquileres</h1>
-                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-success">Volver</a>
+                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-info">Volver</a>
                 <br>
                 <br>
-                <table  class="table table-sm table-bordered table-hover ">
+                <table  class="table table-sm table-bordered table-dark ">
                     <thead class="thead-dark">
                         <tr>
                             <th class="text-center">Nombre del beneficio</th>
@@ -52,7 +52,7 @@
 
                             <td class="text-center">                               
                                 <a style="color: white" class="btn btn-danger" href="BeneficiosEliminar?id_beneficio=<%=rs.getInt("id_beneficio")%>">Eliminar</a> 
-                                <a style="color: white" class="btn btn-info" href="actualizarBeneficio.jsp?id_beneficio=<%=rs.getInt("id_beneficio")%>">Actualizar</a>
+                                <a style="color: white" class="btn btn-warning" href="actualizarBeneficio.jsp?id_beneficio=<%=rs.getInt("id_beneficio")%>">Actualizar</a>
                             </td>
                         </tr>
                         <%}%>

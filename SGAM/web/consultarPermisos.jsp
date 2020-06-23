@@ -24,10 +24,10 @@
             <div class="container">
                 <br>
                 <h1>Permisos de usuarios</h1>
-                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-success">Volver</a>
+                <a href="menuAdministrador.jsp" style="color: white" class="btn btn-info">Volver</a>
                 <br>
                 <br>
-                <table  class="table table-sm table-bordered table-hover ">
+                <table  class="table table-sm table-bordered table-dark ">
                     <thead class="thead-dark">
                         <tr>
                             <th class="text-center">Numero de documento</th>

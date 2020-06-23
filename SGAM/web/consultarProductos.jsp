@@ -4,6 +4,7 @@
     Author     : Juan Pablo
 --%>
 
+
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -29,18 +30,19 @@
                     <th>Accion</th>
                 </tr>
             </thead>
+
+
+            <%  Conexion con = new Conexion();
+                PreparedStatement pst = null;
+                ResultSet rs = null;
+                try {
+                    String consulta = "SELECT * FROM producto;";
+                    pst = con.getConexion().prepareStatement(consulta);
+                    rs = pst.executeQuery();
+
+                    while (rs.next()) {%>
+
             <tbody>
-                <%  Conexion con = new Conexion();
-                    PreparedStatement pst = null;
-                    ResultSet rs = null;
-                    try {
-                        String consulta = "SELECT * FROM producto;";
-                        pst = con.getConexion().prepareStatement(consulta);
-                        rs = pst.executeQuery();
-
-                        while (rs.next()) {%>
-
-
 
                 <tr class="text-center">
                     <td><%=rs.getString("nombre_producto")%></td>
@@ -71,9 +73,11 @@
                             System.err.println("Error" + e);
                         }
                     }%>
+
+
             </tbody>
         </table>   
-            <a href="menuVendedor.jsp" class="btn btn-link">Salir</a>
+        <a href="menuVendedor.jsp" class="btn btn-link">Salir</a>
     </div>
 </div>
 
