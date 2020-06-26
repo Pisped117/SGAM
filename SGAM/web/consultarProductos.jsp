@@ -4,7 +4,7 @@
     Author     : Juan Pablo
 --%>
 
-
+<%@include file="seguridad.jsp" %>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>

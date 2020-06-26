@@ -4,6 +4,7 @@
     Author     : Juan Pablo
 --%>
 <%--   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
+<%@include file="seguridad.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

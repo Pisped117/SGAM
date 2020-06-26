@@ -55,10 +55,10 @@
                                 <%
                                     String estado = rs.getString(7);
                                     if (estado.equals("Habilitado")) {
-                                        %><a style="color: white" class="btn btn-danger" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Deshabilitado">Deshabilitar</a> <%
-                                    } else {
+                                %><a style="color: white" class="btn btn-danger" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Deshabilitado">Deshabilitar</a> <%
+                                        } else {
                                 %><a style="color: white" class="btn btn-warning" href="UsuarioCambiarEstado?numero_documento=<%=rs.getString(1)%>&estado=Habilitado">Habilitar</a><%
-                                      }
+                                    }
                                 %>
                             </td>
                         </tr>

@@ -3,9 +3,10 @@
     Created on : 16-jun-2020, 16:01:03
     Author     : Andres Alvarez
 --%>
-
+<%@include file="seguridad.jsp" %>
 <%@page session="true"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +17,7 @@
     <body>      
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <%HttpSession obj = request.getSession();%>
+            
 
             <a class="navbar-brand">SGAM</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link"><%out.println(obj.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
+                        <a class="nav-link"><%out.println(session.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -54,7 +55,7 @@
                         <%@include file="permisos.jsp"%>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="salir.">Salir</a>
+                        <a class="nav-link" href="salir.jsp">Salir</a>
                     </li>
                 </ul>
             </div>

@@ -3,7 +3,7 @@
     Created on : 19-jun-2020, 14:55:53
     Author     : Andres Alvarez
 --%>
-
+<%@include file="seguridad.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

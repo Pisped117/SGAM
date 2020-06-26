@@ -35,9 +35,12 @@ public class UsuarioIniciar extends HttpServlet {
           
             con.setAttribute("documento", numero_documento);
             con.setAttribute("nombre", nombre);
+            con.setAttribute("usuario", "1");
             response.sendRedirect("menuUsuario.jsp");
         } else {
-  
+            con.setAttribute("documento", "");
+            con.setAttribute("nombre", "");
+            con.setAttribute("usuario", "0");     
             response.sendRedirect("index.jsp");
         }
            

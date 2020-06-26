@@ -3,7 +3,7 @@
     Created on : 18-jun-2020, 15:20:13
     Author     : Andres Alvarez
 --%>
-
+<%@include file="seguridad.jsp" %>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>

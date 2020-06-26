@@ -7,6 +7,7 @@
 
 <%@page session="true"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="seguridad.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +18,7 @@
     <body>      
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <%HttpSession obj = request.getSession();%>
+            
 
             <a class="navbar-brand">SGAM</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link"><%out.println(obj.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
+                        <a class="nav-link"><%out.println(session.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" href="actualizarDatos.jsp">Actualizar datos personales</a>

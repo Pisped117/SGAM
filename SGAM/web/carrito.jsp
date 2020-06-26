@@ -3,7 +3,7 @@
     Created on : 20-jun-2020, 12:25:23
     Author     : Andres Alvarez
 --%>
-
+<%@include file="seguridad.jsp" %>
 <%@page import="Modelo.Carrito"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>

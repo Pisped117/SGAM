@@ -3,7 +3,7 @@
     Created on : 20-jun-2020, 12:25:23
     Author     : Andres Alvarez
 --%>
-
+<%@include file="seguridad.jsp" %>
 <%@page import="Modelo.Carrito"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -15,6 +15,7 @@
 <%@page import="Modelo.Conexion"%>
 <%@page session="true"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +26,7 @@
     <body>      
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <%HttpSession obj = request.getSession();%>
+            
 
             <a class="navbar-brand">SGAM</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,43 +35,16 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link"><%out.println(obj.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
+                        <a class="nav-link"><%out.println(session.getAttribute("nombre"));%><span class="sr-only">(current)</span></a>
                     </li>
-
-                    <%
-                        ProductoDAO pdao = new ProductoDAO();
-                        Producto pro = new Producto();
-                        List<Producto> productos = new ArrayList<>();
-                        List<Carrito> listCarrito = new ArrayList<>();
-
-                        int item = 0;
-                        int total_pagar = 0;
-                        int cantidad = 1;
-      
-                         int id_producto = Integer.parseInt(request.getParameter("id"));
-
-                            pro = pdao.consultarId(id_producto);
-                            item = item + 1;
-                            Carrito car = new Carrito();
-
-                            car.setItem(item);
-                            car.setId_producto(pro.getId_producto());
-                            car.setNombre(pro.getNombre_producto());
-                            car.setPrecio_compra(pro.getPrecio());
-                            car.setCantidad(cantidad);
-                            car.setSub_total(cantidad * pro.getPrecio());
-
-                            listCarrito.add(car);
-
-                    %>
        
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-cart-plus"><label style="color: crimson"><%=listCarrito.size()%></label></i>Carrito</a>
+                        <a class="nav-link" href="#"><i class="fas fa-cart-plus"><label style="color: crimson"></label></i>Carrito</a>
                     </li>
 
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="salir.jsp">Salir</a>
                     </li>
                     <li class="nav-item dropdown">
                         <%@include file="permisos.jsp"%>
@@ -104,7 +78,7 @@
                             <img src="ProductoConsultarImagen?id=<%=rss.getString("id_producto")%>" width="200" height="180"    >
                         </div>
                         <div class="card-footer text-center">
-                            <a class="btn btn-outline-success" href="menuCliente.jsp?id=<%=rss.getString("id_producto")%>">Añadir al carrito</a>
+                            <a class="btn btn-outline-success" href="a.jsp?id=<%=rss.getString("id_producto")%>">Añadir al carrito</a>
                             <a class="btn btn-outline-danger">Comprar</a>
                         </div>
                     </div>                  
