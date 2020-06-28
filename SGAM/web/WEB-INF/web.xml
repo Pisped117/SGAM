@@ -16,6 +16,14 @@
         <servlet-name>CarritoAgregar</servlet-name>
         <servlet-class>Contrlador.CarritoAgregar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarArticulo</servlet-name>
+        <servlet-class>Contrlador.EliminarArticulo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlquilerGenerar</servlet-name>
+        <servlet-class>Contrlador.AlquilerGenerar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductoRegistrar</servlet-name>
         <url-pattern>/ProductoRegistrar</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>CarritoAgregar</servlet-name>
         <url-pattern>/CarritoAgregar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarArticulo</servlet-name>
+        <url-pattern>/EliminarArticulo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlquilerGenerar</servlet-name>
+        <url-pattern>/AlquilerGenerar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

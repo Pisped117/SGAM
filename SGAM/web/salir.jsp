@@ -11,6 +11,7 @@
     ob.setAttribute("usuario", "0");
     ob.setAttribute("nombre", "");
     ob.setAttribute("documento", "");
+    
     response.sendRedirect("index.jsp");
     
 

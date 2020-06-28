@@ -39,7 +39,7 @@
                     </li>
        
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-cart-plus"><label style="color: crimson"></label></i>Carrito</a>
+                        <a class="nav-link" href="carrito.jsp"><i class="fas fa-cart-plus"><label style="color: crimson"></label></i>Carrito</a>
                     </li>
 
                    
@@ -65,11 +65,16 @@
                         rss = ps.executeQuery();
 
                         while (rss.next()) {%>
-
+               
                 <div class="col-sm-4">
+                    <form action="CarritoAgregar" method="POST">
                     <div class="card">
                         <div class="card-header">
                             <label><%=rss.getString("nombre_producto")%></label>
+                        </div>
+                          <div class="card-header">
+                              <label>Cantidad:</label>
+                              <input type="number" name="cantidad" value="1">
                         </div>
                         <div class="card-body">
                             <i>COP$ <%=rss.getString("precio")%></i>
@@ -78,10 +83,12 @@
                             <img src="ProductoConsultarImagen?id=<%=rss.getString("id_producto")%>" width="200" height="180"    >
                         </div>
                         <div class="card-footer text-center">
-                            <a class="btn btn-outline-success" href="a.jsp?id=<%=rss.getString("id_producto")%>">Añadir al carrito</a>
+                            <input type="hidden" value="<%=rss.getString("id_producto")%>"  name="id_producto">
+                            <input class="btn btn-outline-success" type="submit" value="Agregar al carrito">
                             <a class="btn btn-outline-danger">Comprar</a>
                         </div>
-                    </div>                  
+                    </div>  
+                    </form>
                 </div> 
 
                 <%   }

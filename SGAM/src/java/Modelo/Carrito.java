@@ -7,73 +7,46 @@ package Modelo;
  */
 public class Carrito {
     
-    int item;
-    int id_producto;
-    String nombre;
-    int precio_compra;
-    int cantidad;
-    int sub_total;
+   
+    private int id_producto;
+    private int cantidad;
 
-    public Carrito() {
-    }
-
-    public Carrito(int item, int id_producto, String nombre, int precio_compra, int cantidad, int sub_total) {
-        this.item = item;
+    public Carrito(int id_producto, int cantidad) {
         this.id_producto = id_producto;
-        this.nombre = nombre;
-        this.precio_compra = precio_compra;
         this.cantidad = cantidad;
-        this.sub_total = sub_total;
     }
 
-    public int getItem() {
-        return item;
-    }
 
-    public void setItem(int item) {
-        this.item = item;
-    }
 
+    /**
+     * @return the id_producto
+     */
     public int getId_producto() {
         return id_producto;
     }
 
+    /**
+     * @param id_producto the id_producto to set
+     */
     public void setId_producto(int id_producto) {
         this.id_producto = id_producto;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getPrecio_compra() {
-        return precio_compra;
-    }
-
-    public void setPrecio_compra(int precio_compra) {
-        this.precio_compra = precio_compra;
-    }
-
+    /**
+     * @return the cantidad
+     */
     public int getCantidad() {
         return cantidad;
     }
 
+    /**
+     * @param cantidad the cantidad to set
+     */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getSub_total() {
-        return sub_total;
-    }
 
-    public void setSub_total(int sub_total) {
-        this.sub_total = sub_total;
-    }
-    
     
     
     

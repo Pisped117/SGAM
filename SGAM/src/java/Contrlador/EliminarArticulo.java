@@ -2,8 +2,8 @@ package Contrlador;
 
 import Modelo.Carrito;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,55 +14,68 @@ import javax.servlet.http.HttpSession;
  *
  * @author Andres Alvarez
  */
-public class CarritoAgregar extends HttpServlet {
+public class EliminarArticulo extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        int id_producto = Integer.parseInt(request.getParameter("id_producto"));
+        int id_articulo = Integer.parseInt(request.getParameter("id_producto"));
 
         HttpSession sesion = request.getSession(true);
+        ArrayList<Carrito> lista = sesion.getAttribute("carrito") == null ? null : (ArrayList) sesion.getAttribute("carrito");
 
-        ArrayList<Carrito> lista = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
-
-        boolean comprobacion = false;
-
-        if (lista.size() > 0) {
+        if (lista != null) {
             for (Carrito c : lista) {
-                if (id_producto == c.getId_producto()) {
-                    c.setCantidad(c.getCantidad() + cantidad);
-                    comprobacion = true;
+                if (c.getId_producto() == id_articulo) {
+                    lista.remove(c);                  
                     break;
                 }
             }
         }
-
-        if (!comprobacion) {
-            lista.add(new Carrito(id_producto, cantidad));
-        }
-
-        sesion.setAttribute("carrito", lista);
+        
         
         response.sendRedirect("carrito.jsp");
+
     }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

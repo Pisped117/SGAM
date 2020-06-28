@@ -8,10 +8,10 @@
 <%
 
 
-
+/*
 if (session.getAttribute("usuario") != "1") {
         response.sendRedirect("index.jsp");
-    }
+    }*/
 
 
 
