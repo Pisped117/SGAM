@@ -9,9 +9,9 @@
 
 
 
-if (session.getAttribute("usuario") != "1") {
-        response.sendRedirect("index.jsp");
-    }
+/*if (session.getAttribute("administrador") == null) {
+        response.sendRedirect("salir.jsp");
+    }*/
 
 
 

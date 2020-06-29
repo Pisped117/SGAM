@@ -3,6 +3,8 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.util.Random;
 
 /**
  *
@@ -172,7 +174,7 @@ public class Usuario extends Conexion {
         PreparedStatement pst = null;
         ResultSet rs = null;
         PreparedStatement pst2 = null;
-        
+
         try {
 
             String consulta = "SELECT * FROM usuario WHERE numero_documento= ? AND contrasenia= ?";
@@ -217,11 +219,58 @@ public class Usuario extends Conexion {
         return false;
     }
 
-    public static void main(String[] args) {
+/*public static void main(String[] args) {
 
-        Usuario con = new Usuario();
+        Usuario us = new Usuario();
+        
+        String con = us.recuperarContrasenia("12345", "afalvarez71@misena.edu.co");
+    }*/
 
-        //con.actualizarContrasenia("123", "123", "12345");
+
+    public String buscarCorreo(String numero_documento) {
+
+        String contrasenia_nueva;
+        String correo = "";
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM usuario WHERE numero_Documento = ?";
+
+        try {
+            pst = getConexion().prepareStatement(sql);
+            pst.setString(1, numero_documento);          
+            rs=pst.executeQuery();
+            
+            while(rs.next()){
+               correo = rs.getString("correo"); 
+            }  
+        } catch (SQLException e) {
+        }
+
+        return correo;
+    }
+    
+    public String recuperarContrasenia(String numero_documento, String correo){
+        
+       Random random = new Random();
+       SendEmailSMTP s = new SendEmailSMTP(); 
+       PreparedStatement pst = null;
+       ResultSet rs = null;
+       String contrasenia =String.valueOf(random.nextInt(999999));
+       String sql = "UPDATE usuario SET contrasenia = ? WHERE numero_documento= ?"; 
+       
+        try {
+            pst = getConexion().prepareStatement(sql);
+            pst.setString(1, contrasenia);
+            pst.setString(2, numero_documento);
+                
+            if(pst.executeUpdate() == 1){
+                s.enviarConGMail(correo, "Recuperar Contraseña  ", "Su contraseña es: " + contrasenia +" Favor cambiar inmediatamente");
+            }
+                
+        } catch (Exception e) {
+        }
+       
+        return contrasenia;
     }
 
 }

@@ -4,6 +4,8 @@
     Author     : Andres Alvarez
 --%>
 
+<%@include file="seguridad.jsp" %>
+<%@include file="seguridadCliente.jsp" %>
 <%@page import="Modelo.ProductoDAO"%>
 <%@page import="Modelo.Producto"%>
 <%@page import="java.util.ArrayList"%>
@@ -20,6 +22,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carrito</title>
+                <link rel="icon" href="Img/logoCaterpillar.png" >
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

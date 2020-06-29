@@ -8,10 +8,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession ob = request.getSession();
-    ob.setAttribute("usuario", "0");
+    ob.setAttribute("usuario", null);
     ob.setAttribute("nombre", "");
     ob.setAttribute("documento", "");
-    
+    ob.setAttribute("carrito", null);
+    ob.setAttribute("administrador", null);
+    ob.setAttribute("cliente", null);
+    ob.setAttribute("vendedor", null);
     response.sendRedirect("index.jsp");
     
 

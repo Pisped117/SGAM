@@ -5,6 +5,7 @@
 --%>
 
 <%@include file="seguridad.jsp" %>
+<%@include file="seguridadAdministrador.jsp" %>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -17,6 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <title>Administrador</title>
+        <link rel="icon" href="Img/logoCaterpillar.png" >
     </head>
     <body>
         <div class="container mt-4">
@@ -78,6 +80,7 @@
                         %>
 
                 </form>
+     <a href="menuAdministrador.jsp" class="btn btn-link">Volver</a>                     
             </div>
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

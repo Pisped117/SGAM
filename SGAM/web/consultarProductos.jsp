@@ -5,6 +5,7 @@
 --%>
 
 <%@include file="seguridad.jsp" %>
+<%@include file="seguridadVendedor.jsp" %>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -16,6 +17,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <title>Consultar Producto</title>
+                <link rel="icon" href="Img/logoCaterpillar.png" >
+
     </head>
     <body>
 
@@ -77,7 +80,7 @@
 
             </tbody>
         </table>   
-        <a href="menuVendedor.jsp" class="btn btn-link">Salir</a>
+        <a href="menuVendedor.jsp" class="btn btn-link">Volver</a>
     </div>
 </div>
 

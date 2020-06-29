@@ -40,7 +40,7 @@ public class UsuarioIniciar extends HttpServlet {
         } else {
             con.setAttribute("documento", "");
             con.setAttribute("nombre", "");
-            con.setAttribute("usuario", "0");     
+            con.setAttribute("usuario", null);     
             response.sendRedirect("index.jsp");
         }
            

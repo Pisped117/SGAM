@@ -25,12 +25,11 @@
                 <option>Seleccione rol:</option>
                 <option value='menuUsuario.jsp'>Usuario</option>
                 <%
-                    
 
                     int contador = 0;
                     String documento = (String) session.getAttribute("documento");
                     Conexion con = new Conexion();
-                   
+
                     String sql = "SELECT * FROM permisos WHERE numero_documento='" + documento + "'";
                     PreparedStatement pst = null;
                     ResultSet rs = null;
@@ -40,7 +39,7 @@
                         String nombre_rol = "";
                         contador = contador++;
                         while (rs.next()) {
-                           
+
                             String id_rol = rs.getString("id_rol");
                             String sql2 = "SELECT * FROM roles WHERE id_rol='" + id_rol + "'";
                             PreparedStatement pst2 = null;
@@ -51,28 +50,34 @@
                             while (rs2.next()) {
                                 nombre_rol = rs2.getString("nombre_rol");
 
-                                
                                 if (nombre_rol.equals("Administrador")) {
+                                    session.setAttribute("administrador", "1");
                 %>
                 <option value="menuAdministrador.jsp"><a ><%=nombre_rol%></a></option>
                 <%
+                    } else {
+                        session.setAttribute("administrador", null);
                     }
                     if (nombre_rol.equals("Vendedor")) {
-
+                        session.setAttribute("vendedor", "1");
                 %>
                 <option value="menuVendedor.jsp"><a ><%=nombre_rol%></a></option>
                 <%
+                    } else {
+                        session.setAttribute("vendedor", null);
                     }
                     if (nombre_rol.equals("Cliente")) {
+                        session.setAttribute("cliente", "1");
                 %> 
                 <option value="menuCliente.jsp"><a ><%=nombre_rol%></a></option>
                 <%
 
+                    } else {
+                        session.setAttribute("cliente", null);
                     }
 
                 %>
-                <%                   
-                            }
+                <%                            }
 
                         }
 

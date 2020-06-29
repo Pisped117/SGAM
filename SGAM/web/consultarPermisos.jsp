@@ -4,6 +4,7 @@
     Author     : Andres Alvarez
 --%>
 <%@include file="seguridad.jsp" %>
+<%@include file="seguridadAdministrador.jsp" %>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -15,6 +16,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consultar</title>
+        <link rel="icon" href="Img/logoCaterpillar.png" >
+
     </head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="css/styledocumento.css" rel="stylesheet" type="text/css"/>
