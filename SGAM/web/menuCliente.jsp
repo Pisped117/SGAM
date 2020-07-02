@@ -88,7 +88,6 @@
                         <div class="card-footer text-center">
                             <input type="hidden" value="<%=rss.getString("id_producto")%>"  name="id_producto">
                             <input class="btn btn-outline-success" type="submit" value="Agregar al carrito">
-                            <a class="btn btn-outline-danger">Comprar</a>
                         </div>
                     </div>  
                     </form>

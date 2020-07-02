@@ -84,6 +84,7 @@
                                 <td><%=c.getCantidad()%></td> 
                                 <td>COP$ <%=c.getCantidad() * pro.getPrecio()%></td> 
                                 <td><a class="btn btn-danger" href="EliminarArticulo?id_producto=<%=pro.getId_producto()%>">Eliminar</a></td>
+                                
                             </tr>
                             <%}
                             } else {%>

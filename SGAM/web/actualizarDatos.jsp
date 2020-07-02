@@ -24,7 +24,7 @@
                 <form action="UsuarioActualizar" class="col-md-6" method="POST" autocomplete="OFF" >
                     <div class="card">
                         <div class="card-header">
-                            <h3>Registrar Usuario</h3>
+                            <h3>Actualizar Datos</h3>
 
                             <% HttpSession con = request.getSession();
                                 String numero_documento = (String) con.getAttribute("documento");%>

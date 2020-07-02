@@ -20,7 +20,7 @@ public class AlquilerDAO {
 
     public int generarAlquiler(Alquiler alquiler) {
 
-        int codigo_alquiler;
+        int codigo_alquiler = 0;
         String sql = "INSERT INTO alquiler (precio_alquiler,fecha_entrega,fecha_devolucion,numero_documento,id_rol) VALUES (?,?,?,?,?)";
         try {
             con = cn.getConexion();
@@ -49,7 +49,35 @@ public class AlquilerDAO {
         } catch (SQLException e) {
         }
 
-        return res;
+        return codigo_alquiler;
     }
 
+    public boolean aplicarBeneficio(int codigo_alquiler, int id_beneficio) {
+        
+        
+        boolean verificacion = false;
+        String sql = "INSERT INTO beneficios_alquiler_mayor VALUES (?,?)";
+
+        try {
+            con = cn.getConexion();
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, codigo_alquiler);
+            pst.setInt(2, id_beneficio);
+            
+            if(pst.executeUpdate()==1){
+                verificacion = true;
+            }
+
+        } catch (Exception e) {
+        }
+
+        return verificacion;
+    }
+
+   /* public static void main(String[] args) {
+        AlquilerDAO adao = new AlquilerDAO();
+        
+        adao.aplicarBeneficio(10, 1);
+    }*/
+    
 }

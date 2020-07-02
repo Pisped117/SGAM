@@ -35,16 +35,23 @@ public class AlquilerGenerar extends HttpServlet {
             ArrayList<Carrito> lista = sesion.getAttribute("carrito") == null ? null : (ArrayList) sesion.getAttribute("carrito");
 
             Alquiler alquiler = new Alquiler(precio_alquiler, fecha_entrega, fecha_devolucion, numero_documento, id_rol, lista);
-            
-            int res = adao.generarAlquiler(alquiler);
-            
-            if(res != 0){
+
+            int codigo_alquiler = adao.generarAlquiler(alquiler);
+
+            if (codigo_alquiler != 0) {              
+                if (lista.size() >= 6) {                   
+                    adao.aplicarBeneficio(codigo_alquiler, 1);
+                    adao.aplicarBeneficio(codigo_alquiler, 2);
+                }else if(precio_alquiler > 4000000){
+                    adao.aplicarBeneficio(codigo_alquiler, 3);
+                    adao.aplicarBeneficio(codigo_alquiler, 4);
+                }
                 sesion.setAttribute("carrito", null);
                 response.sendRedirect("menuCliente.jsp");
-            }else{
+            } else {
                 response.sendRedirect("carrito.jsp");
             }
-            
+
         }
     }
 

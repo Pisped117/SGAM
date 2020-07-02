@@ -56,7 +56,7 @@
                                 <input type="text" name="documento" class="form-control">
                             </div>                           
                         <div class="card-footer">
-                            <button class="btn btn-outline-primary" name="accion" value="Guardar">Guardar</button>
+                            <button class="btn btn-outline-primary" name="accion" value="Guardar">Recuperar</button>
                             <a class="btn btn-outline-success" href="index.jsp">Volver</a>
                         </div>                
                     </div>
