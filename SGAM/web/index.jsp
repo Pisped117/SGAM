@@ -1,64 +1,57 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Bienvenido</title>
-   <!--Made with love by Mutiullah Samim -->
-   
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-	<!--Custom styles-->
-	<link rel="stylesheet" type="text/css" href="styles.css">
-        <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v4.0.1">
+        <title>Bienvenido</title>
         <link rel="icon" href="Img/logoCaterpillar.png" >
-        <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body >
-<div class="container">
-   
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3>Inicia Sesion</h3>
-				
-			</div>
-			<div class="card-body">
-				<form action="UsuarioIniciar" method="POST" autocomplete="OFF">
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Documento" name="documento">
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="Contraseña" name="contrasenia">
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox"> Recuerdame
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Ingresar" class="btn float-right login_btn">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					¿No estas registrado?<a href="registrarUsuario.jsp">Registrate</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="recuperarContrasenia.jsp">¿Olvidaste tu contraseña?</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</body>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+
+
+        <!-- Bootstrap core CSS -->
+        <link href="CSS/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+        <!-- Custom styles for this template -->
+        <link href="CSS/Login.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body class="text-center">
+        <form class="form-signin" action="UsuarioIniciar" method="POST" autocomplete="OFF">
+            <img class="mb-4" src="Img/logoCaterpillar.png" alt="" width="150" height="150">
+            <h1 class="h3 mb-3 font-weight-normal">Inicia Sesion</h1>
+            <label for="inputEmail" class="sr-only">Documento</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="Numero de documento" required autofocus name="documento">
+            <label for="inputPassword" class="sr-only">Contraseña</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required name="contrasenia">
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Recuerdame
+                </label>
+            </div>
+            <button class="btn btn-lg btn-warning btn-block" type="submit">Entrar</button>
+            <br>
+            <br>
+            ¿No estas registrado?<a href="registrarUsuario.jsp">Registrate</a>
+            <a href="recuperarContrasenia.jsp">¿Olvidaste tu contraseña?</a>
+
+        </form>
+    </body>
 </html>

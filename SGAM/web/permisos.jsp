@@ -15,13 +15,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
 
     <link href="css/rol.css" rel="stylesheet" type="text/css"/>
     <body>
         <header>
-            <select name="permiso" class="" onchange="location = this.value;">  <br>
+            <select name="permiso" class="" onchange="location = this.value;"> 
                 <option>Seleccione rol:</option>
                 <option value='menuUsuario.jsp'>Usuario</option>
                 <%

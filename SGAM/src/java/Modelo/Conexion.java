@@ -13,7 +13,7 @@ public class Conexion {
         // Creación de las variables para la conexión
     
     private String USERNAME ="root";
-    private String PASSWORD ="";
+    private String PASSWORD ="admin";
     private String HOST ="localhost";
     private String PORT="3306";
     private String DATABASE ="sgam?useTimezone=true&serverTimezone=UTC&useSSL=false";
